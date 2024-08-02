@@ -41,9 +41,7 @@ sudo bash ./setup.sh
 
 The DPU is initially configured to be loaded with `xmutil`.
 
-An application named `b4096_300m` was created. The method for creating the necessary files is introduced in the following article:
-
-[Creating the Application](https://misoji-engineer.com/archives/vitis-ai-3-5-kv260-yolox.html)
+An application named `b4096_300m` was created. The method for creating the necessary files.
 
 ```bash
 cd sd_aiedge_4096/
