@@ -149,29 +149,5 @@ cd onnx-test/
 python onnx-yolox.py
 ```
 
-### Test Results
-
-#### YOLOX Object Detection on CPU (Single Image)
-
-- **Bounding Boxes of Detected Objects:** `[[ 470.0975647   137.78985596  809.90246582  477.59475708], [   0.            5.46184874 1280.          720.        ]]`
-- **Scores of Detected Objects:** `[0.73085773 0.24486023]`
-- **Details of Detected Objects:** `[49. 60.]`
-- **Pre-processing Time:** `0.0105 seconds`
-- **CPU Execution Time:** `0.3377 seconds`
-- **Post-process Time:** `0.0349 seconds`
-- **Total Run Time:** `0.3832 seconds`
-- **Performance:** `2.609 FPS`
-
-#### YOLOX Object Detection on DPU (Single Image)
-
-- **Bounding Boxes of Detected Objects:** `[[ 473.17449951  137.78985596  812.97937012  477.59475708], [   0.            5.46184874 1280.          720.        ]]`
-- **Scores of Detected Objects:** `[0.73033565 0.20149007]`
-- **Details of Detected Objects:** `[49. 60.]`
-- **Pre-processing Time:** `0.0108 seconds`
-- **DPU Execution Time:** `0.0153 seconds`
-- **Post-process Time:** `0.0360 seconds`
-- **Total Run Time:** `0.0621 seconds`
-- **Performance:** `16.092 FPS`
-
 
 
