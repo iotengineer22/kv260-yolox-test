@@ -86,7 +86,7 @@ Performance: 18.780998267115038 FPS
 ```
 
 
-# Installation and Setup for ONNX Runtime with Vitis AI
+## Installation and Setup for ONNX Runtime with Vitis AI
 
 This guide will help you set up the environment necessary to run ONNX Runtime using Vitis AI.
 
