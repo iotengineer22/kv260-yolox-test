@@ -283,7 +283,8 @@ def reshape_and_concat_outputs(outputs):
 
 session = onnxruntime.InferenceSession(
 'yolox_nano.onnx',
-providers=["VitisAIExecutionProvider"],
+# providers=["VitisAIExecutionProvider"],
+providers=["CPUExecutionProvider"],
 provider_options=[{"config_file":"/usr/bin/vaip_config.json"}])
 
 input_shape = session.get_inputs()[0].shape
