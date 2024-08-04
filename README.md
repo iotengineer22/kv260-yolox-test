@@ -156,3 +156,62 @@ python onnx-yolox.py
 
 
 
+## ONNX YOLOX Post-Processing Test
+
+This document presents the results of testing post-processing on the ONNX version of YOLOX.
+
+Although the inference was performed on a CPU, the DPU was initially loaded (though not used) for the tests.
+
+```bash
+sudo xmutil unloadapp
+sudo xmutil loadapp b4096_300m
+sudo xmutil listapps
+```
+
+### Testing the Model Converted from Vitis AI Official PyTorch to ONNX
+
+Navigate to the `onnx-test/` directory and run the test script:
+
+```bash
+cd onnx-test/
+python onnx-cpu-yolox.py
+```
+
+- Post-processing time: **0.0349 seconds** (approximately 30ms).
+- This time is not significant for CPU inference, but it could be a bottleneck when accelerating with a DPU.
+
+**Results:**
+
+- Bounding boxes of detected objects: `[[470.0975647, 137.78985596, 809.90246582, 477.59475708], [0., 5.46184874, 1280., 720.]]`
+- Scores of detected objects: `[0.73085773, 0.24486023]`
+- Details of detected objects: `[49., 60.]`
+- Pre-processing time: **0.0107 seconds**
+- CPU execution time: **0.3382 seconds**
+- Post-processing time: **0.0349 seconds**
+- Total run time: **0.3838 seconds**
+- Performance: **2.605 FPS**
+
+### Testing the Official YOLOX ONNX Model
+
+The official YOLOX ONNX model was examined, showing a single output of `1x3549x85`, which includes a sigmoid function.
+
+Run the following script to test:
+
+```bash
+python onnx-official-yolox.py
+```
+
+- Post-processing time: **0.0129 seconds** (approximately 10ms).
+- The official model's post-processing is faster than the ONNX model based on Vitis AI's PyTorch.
+
+**Results:**
+
+- Bounding boxes of detected objects: `[[462.03820801, 138.55554199, 802.19238281, 490.05123901], [6.32357121, 2.35593367, 1276.58996582, 720.]]`
+- Scores of detected objects: `[0.88007289, 0.29118863]`
+- Details of detected objects: `[49., 60.]`
+- Pre-processing time: **0.0107 seconds**
+- DPU execution time: **0.2495 seconds**
+- Post-processing time: **0.0129 seconds**
+- Total run time: **0.2730 seconds**
+- Performance: **3.663 FPS**
+
