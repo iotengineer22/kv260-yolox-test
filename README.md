@@ -1,3 +1,6 @@
+# kv260-PetaLinux-test
+This repository present solution for my KV260 Petalinux YOLOX test
+
 ## Test Environment
 
 The test environment is as follows:
